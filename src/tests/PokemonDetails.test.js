@@ -1,10 +1,10 @@
-import React from 'react';
-import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import renderWithRouter from '../components/renderWithRouter';
-import PokemonDetails from '../components/PokemonDetails';
+// import React from 'react';
+// import { screen } from '@testing-library/react';
+// import userEvent from '@testing-library/user-event';
+// import renderWithRouter from '../components/renderWithRouter';
+// import PokemonDetails from '../components/PokemonDetails';
 
-const CHECKBOX_TEXT = 'Pokémon favoritado?';
+// const CHECKBOX_TEXT = 'Pokémon favoritado?';
 
 // describe(`Teste se as informações detalhadas do
 //   Pokémon selecionado são mostradas na tela.`, () => {
