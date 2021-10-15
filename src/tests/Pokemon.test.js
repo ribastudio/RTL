@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from '../components/renderWithRouter';
 import Pokemon from '../components/Pokemon';
 
+const LINK_MORE_DETAILS = 'More details';
 // const pokemon = {
 //   id: 25,
 //   name: 'Pikachu',
@@ -67,7 +68,7 @@ describe('Teste o componente <Pokemon.js />', () => {
     O link deve possuir a URL /pokemons/<id>, onde <id> é o
     id do Pokémon exibido.`, () => {
       renderWithRouter(<Pokemon pokemon={ pokemon } isFavorite={ false } />);
-      const detailsLink = screen.getByRole('link', { name: 'More details' });
+      const detailsLink = screen.getByRole('link', { name: LINK_MORE_DETAILS });
       expect(detailsLink).toHaveAttribute('href', '/pokemons/25');
     });
     it(`Teste se ao clicar no link de navegação do Pokémon,
@@ -76,7 +77,7 @@ describe('Teste o componente <Pokemon.js />', () => {
       const { history } = renderWithRouter(
         <Pokemon pokemon={ pokemon } isFavorite={ false } />,
       );
-      const detailsLink = screen.getByRole('link', { name: 'More details' });
+      const detailsLink = screen.getByRole('link', { name: LINK_MORE_DETAILS });
       userEvent.click(detailsLink);
 
       const { pathname } = history.location;
@@ -89,7 +90,7 @@ describe('Teste o componente <Pokemon.js />', () => {
       renderWithRouter(
         <Pokemon pokemon={ pokemon } isFavorite={ false } />,
       );
-      const detailsLink = screen.getByRole('link', { name: 'More details' });
+      const detailsLink = screen.getByRole('link', { name: LINK_MORE_DETAILS });
       userEvent.click(detailsLink);
     });
 
