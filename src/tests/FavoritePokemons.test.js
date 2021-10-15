@@ -24,9 +24,9 @@ describe('Teste o componente <FavoritePokemons.js />', () => {
       },
     ];
 
-    renderWithRouter(<FavoritePokemons pokemons={ Pokemons }/>);
+    renderWithRouter(<FavoritePokemons pokemons={ Pokemons } />);
     const pokeName = screen.getByText('Pikachu');
-    const pokeType = screen.getByText('Electric'); 
+    const pokeType = screen.getByText('Electric');
     const pokeWeight = screen.getByText('Average weight: 6.0 kg');
     expect(pokeName).toBeInTheDocument();
     expect(pokeType).toBeInTheDocument();

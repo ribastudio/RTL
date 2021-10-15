@@ -5,6 +5,7 @@ import renderWithRouter from '../components/renderWithRouter';
 import App from '../App';
 
 const LABEL_NEXT_BUTTON = 'next-pokemon';
+const POKEMON_NAME = 'pokemon-name';
 
 describe('Teste o componente <Pokedex.js />', () => {
   test('Teste se página contém um heading h2 com o texto Encountered pokémons.', () => {
@@ -24,7 +25,7 @@ describe('É exibido o próximo Pokémon quando o botão Próximo pokémon é cl
   it('Deve exibir os próximos Pokémons. Ao clicar sucessivamente, volta ao 1o', () => {
     renderWithRouter(<App />);
     const btnNextPokemon = screen.getByTestId(LABEL_NEXT_BUTTON);
-    const pokemonName = screen.getByTestId('pokemon-name');
+    const pokemonName = screen.getByTestId(POKEMON_NAME);
     expect(pokemonName).toHaveTextContent('Pikachu');
     userEvent.click(btnNextPokemon); // executa um clique
     expect(pokemonName).toHaveTextContent('Charmander');
@@ -59,7 +60,7 @@ describe('É mostrado apenas um Pokémon por vez.', () => {
   it('Verifica dse há só um Pokemon na tela', () => {
     renderWithRouter(<App />);
     const btnNextPokemon = screen.getByTestId(LABEL_NEXT_BUTTON);
-    const pokemonName = screen.getAllByTestId('pokemon-name');
+    const pokemonName = screen.getAllByTestId(POKEMON_NAME);
 
     userEvent.click(btnNextPokemon); // executa um clique
     expect(pokemonName.length).toBe(1);
@@ -102,14 +103,14 @@ describe('É mostrado apenas um Pokémon por vez.', () => {
     (sem filtros) quando o botão All for clicado;`, () => {
       renderWithRouter(<App />);
       const btnAll = screen.getByRole('button', { name: 'All' });
-      const pokemonName = screen.getByTestId('pokemon-name');
+      const pokemonName = screen.getByTestId(POKEMON_NAME);
 
       userEvent.click(btnAll);
       expect(pokemonName).toHaveTextContent('Pikachu');
     });
     it('Ao carregar a página, o filtro selecionado deverá ser All;', () => {
       renderWithRouter(<App />);
-      const btnAll = screen.getByRole('button', { name: 'All' });
+      const btnAll = screen.queryByRole('button', { name: 'All' });
       expect(btnAll).toBeInTheDocument();
     });
   });
