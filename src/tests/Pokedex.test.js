@@ -20,6 +20,8 @@ describe('É exibido o próximo Pokémon quando o botão Próximo pokémon é cl
   it('O botão deve conter o texto Próximo pokémon;', () => {
     renderWithRouter(<App />);
     const btnNextPokemon = screen.getByTestId(LABEL_NEXT_BUTTON);
+    expect(btnNextPokemon).toHaveTextContent('Próximo pokémon');
+    // expect(btnNextPokemon).toBeInTheDocument();
     expect(btnNextPokemon).toBeInTheDocument();
   });
   it('Deve exibir os próximos Pokémons. Ao clicar sucessivamente, volta ao 1o', () => {
